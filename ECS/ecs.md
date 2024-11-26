@@ -169,7 +169,7 @@ CHIP Xor {
     Nand(a=d,b=e,out=out);
 }
 ```
-# Virtual lab (digital electronics) exp -1 , exp - 4 , exp -11
+# Virtual lab (digital electronics) exp -1 ,exp -2 , exp -3, exp - 4 , exp -11
 ## CODE
 ### Do these experiments in this website
 > 📌
