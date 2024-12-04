@@ -1,7 +1,10 @@
-#  And,Or,Not,Xor gates (with their 16 bit ver excluding Xor gate) using Nand gates
+<div align="center">
+<h1> And,Or,Not,Xor gates (with their 16 bit ver excluding Xor gate) using Nand gates </h1>
+</div>
+
 ## CODE
 ### And gate using Nand gate 
-```Auto
+```c
 CHIP And {
     IN a, b;
     OUT out;
@@ -12,7 +15,7 @@ CHIP And {
 }
 ```
 ### And16 gate using Nand gate 
-```
+```c
 CHIP And16 {
     IN a[16], b[16];
     OUT out[16];
@@ -51,7 +54,7 @@ CHIP And16 {
     Nand(a=out15,b=out15,out=out[15]);
 ```
 ### Or gate using Nand gate 
-```
+```c
 CHIP Or {
     IN a, b;
     OUT out;
@@ -63,7 +66,7 @@ CHIP Or {
 }
 ```
 ### Or16 gate using Nand gate 
-```
+```c
 CHIP Or16 {
     IN a[16], b[16];
     OUT out[16];
@@ -120,7 +123,7 @@ CHIP Or16 {
 }
 ```
 ### Not gate using Nand gate 
-```
+```c
 CHIP Not {
     IN in;
     OUT out;
@@ -131,7 +134,7 @@ CHIP Not {
 
 ```
 ### Not16 gate using Nand gate
-```
+```c
 CHIP Not16 {
     IN in[16];
     OUT out[16];
@@ -157,7 +160,7 @@ CHIP Not16 {
 }
 ```
 ### Xor gate using Nand gate 
-```
+```c
 CHIP Xor {
     IN a, b;
     OUT out;
@@ -177,7 +180,7 @@ CHIP Xor {
 
 # Nand2Tetris project 2 half adder and full adder and add 16
 ## Half Adder code
-```
+```c
 CHIP HalfAdder {
     IN a, b;    // 1-bit inputs
     OUT sum,    // Right bit of a + b 
@@ -189,7 +192,7 @@ CHIP HalfAdder {
 }
 ```
 ## Full Adder code
-```
+```c
 CHIP FullAdder {
     IN a, b, c;  // 1-bit inputs
     OUT sum,     // Right bit of a + b + c
@@ -203,7 +206,7 @@ CHIP FullAdder {
 ```
 # Mux and Demux (with mux 16 bit) and more
 ### Mux code
-```
+```c
 CHIP Mux {
     IN a, b, sel;
     OUT out;
@@ -216,7 +219,7 @@ CHIP Mux {
 }
 ```
 ### Mux16 code
-```
+```c
 CHIP Mux16 {
     IN a[16], b[16], sel;
     OUT out[16];
@@ -241,7 +244,7 @@ CHIP Mux16 {
 }
 ```
 ### Demux code 
-```
+```c
 CHIP DMux {
     IN in, sel;
     OUT a, b;
@@ -253,7 +256,7 @@ CHIP DMux {
 }
 ```
 ### Mux4Way16
-```
+```c
 CHIP Mux4Way16 {
     IN a[16], b[16], c[16], d[16], sel[2];
     OUT out[16];
@@ -265,7 +268,7 @@ CHIP Mux4Way16 {
 }
 ```
 ### Mux8Way16
-```
+```c
 CHIP Mux8Way16 {
     IN a[16],b[16],c[16],d[16],e[16],f[16],g[16],h[16],sel[3];
     OUT out[16];
@@ -274,6 +277,30 @@ CHIP Mux8Way16 {
     Mux4Way16(a=a,b=b,c=c,d=d,sel=sel[0..1],out=out1);
     Mux4Way16(a=e,b=f,c=g,d=h,sel=sel[0..1],out=out2);
     Mux16(a=out1,b=out2,sel=sel[2],out=out);
+}
+```
+### DMux4Way
+```c
+CHIP DMux4Way {
+    IN in, sel[2];
+    OUT a, b, c, d;
+
+    PARTS:
+    DMux(in=in,sel=sel[1],a=var1,b=var2);
+    DMux(in=var1,sel=sel[0],a=a,b=b);
+    DMux(in=var2,sel=sel[0],a=c,b=d);
+}
+```
+### DMux8Way
+```c
+CHIP DMux8Way {
+    IN in, sel[3];
+    OUT a, b, c, d, e, f, g, h;
+    PARTS:
+    
+    DMux(in=in,sel=sel[2],a=var1,b=var2);
+    DMux4Way(in=var1,sel=sel[0..1],a=a,b=b,c=c,d=d);
+    DMux4Way(in=var2,sel=sel[0..1],a=e,b=f,c=g,d=h);
 }
 ```
 # Feel free to contribute 😊
