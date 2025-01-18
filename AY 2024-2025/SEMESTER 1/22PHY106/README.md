@@ -1,1 +1,1 @@
-# this folder contains all resources for the subject: Computational Physics (22PHY106)
+# This folder contains the resources for the course : Computational Physics (22PHY106)
