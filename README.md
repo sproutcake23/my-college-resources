@@ -1,4 +1,7 @@
-# About this repository 
-## Here you will find the resources that i made or found during my college time 
-# Contributions
-## Contributions are welcome if they are useful for everyone 
+# About this repository
+
+## Here you will find the resources that i created or found during my college years.
+
+# Contributions 🤝
+
+## Contributions are welcome! Feel free to submit a pull request and join our mission to make students' lives better.
